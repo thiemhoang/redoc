@@ -42,7 +42,7 @@ paths:
           schema:
             $ref: '#/definitions/ClientBalanceResponse'
         '400':
-          description: BadRequest
+          description: Tiếng việt
           schema:
             $ref: '#/definitions/ErrorResponse'
         '401':
