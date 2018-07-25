@@ -1,0 +1,177 @@
+
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: Pinnacle - Tài liệu về user
+  description:  |
+    
+    # Phương thức xác thực
+    
+    API sử dụng phương thức xác thực bằng tên đăng nhập và mật khẩu. Bạn cần gửi thông tin chứng thực kèm theo trong mỗi request:  
+    
+    `Authorization: Basic <Chuỗi mã hóa Base64 của "username:password">`
+    
+    Ví dụ:
+    
+    `Authorization: Basic U03MyOT23YbzMDc6d3c3O1DQ1`
+    
+  x-logo:
+    url: 'https://avatars2.githubusercontent.com/u/31601407?s=400&u=f3c6e1cfc8a26665e4a4df6d8da4a7ee527aeceb&v=4'
+host: api.pinnacle.com
+schemes:
+  - https
+security:
+  - basicAuth: []
+paths:
+  /v1/client/balance:
+    get:
+      tags:
+        - Mặc định
+      summary: Lấy thông tin số dư
+      description: Trả về số dư của người dùng hiện tại
+      operationId: Client_Balance_V1_Get
+      consumes: []
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ClientBalanceResponse'
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '403':
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '500':
+          description: InternalServerError
+          schema:
+            $ref: '#/definitions/ExtendedErrorResponse'
+      deprecated: false
+  /v1/translations:
+    get:
+      tags:
+        - Mặc định
+      summary: Dịch thuật - v1
+      description: Trả về chuỗi được dịch dưới dạng mảng. Dịch sang tiếng việt
+      operationId: Translations_V1_Get
+      consumes: []
+      produces:
+        - application/json
+      parameters:
+        - name: cultureCodes
+          in: query
+          description: Dịch sang tiếng việt
+          required: true
+          type: string
+        - name: baseTexts
+          in: query
+          description: Dịch sang tiếng việt
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/TranslationResponse'
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '403':
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '500':
+          description: InternalServerError
+          schema:
+            $ref: '#/definitions/ExtendedErrorResponse'
+securityDefinitions:
+  basicAuth:
+    type: basic
+definitions:
+  ErrorResponse:
+    type: object
+    properties:
+      code:
+        type: string
+        description: Dịch sang tiếng việt
+      message:
+        type: string
+        description: Dịch sang tiếng việt
+    description: Dịch sang tiếng việt
+  ExtendedErrorResponse:
+    type: object
+    properties:
+      ref:
+        type: string
+      code:
+        type: string
+      message:
+        type: string
+  ClientBalanceResponse:
+    description: Dịch sang tiếng việt
+    type: object
+    properties:
+      availableBalance:
+        format: double
+        description: Dịch sang tiếng việt
+        type: number
+      outstandingTransactions:
+        format: double
+        description: Dịch sang tiếng việt
+        type: number
+      givenCredit:
+        format: double
+        description: Dịch sang tiếng việt
+        type: number
+      currency:
+        description: Dịch sang tiếng việt
+        type: string
+    required: 
+      - availableBalance
+      - outstandingTransactions
+      - givenCredit
+      - currency
+  TranslationResponse:
+    type: object
+    properties:
+      translations:
+        type: array
+        description: Dịch sang tiếng việt
+        items:
+          $ref: '#/definitions/Translation'
+  Translation:
+    type: object
+    properties:
+      text:
+        type: string
+        description: Dịch sang tiếng việt
+      cultures:
+        type: array
+        description: Dịch sang tiếng việt
+        items:
+          $ref: '#/definitions/TranslationByCulture'
+  TranslationByCulture:
+    type: object
+    properties:
+      id:
+        type: string
+        description: Dịch sang tiếng việt
+      text:
+        type: string
+        description: Dịch sang tiếng việt
