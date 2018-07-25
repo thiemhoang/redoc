@@ -46,15 +46,15 @@ paths:
           schema:
             $ref: '#/definitions/ErrorResponse'
         '401':
-          description: Unauthorized
+          description: Tiếng việt
           schema:
             $ref: '#/definitions/ErrorResponse'
         '403':
-          description: Forbidden
+          description: Tiếng việt
           schema:
             $ref: '#/definitions/ErrorResponse'
         '500':
-          description: InternalServerError
+          description: Tiếng việt
           schema:
             $ref: '#/definitions/ExtendedErrorResponse'
       deprecated: false
