@@ -221,11 +221,11 @@ paths:
           description: InternalServerError
           schema:
             $ref: '#/definitions/ErrorResponseWithErrorRef'
-  /v2/bets:
+  /v1/bets:
     get:
       tags:
         - Get Bets
-      summary: Get Bets - v2
+      summary: Get Bets - v1
       description: |
           Returns bets. 
           
@@ -257,13 +257,13 @@ paths:
           ### Get bets by bet ids:
           
           ```
-          https://api.ps3838.com/v2/bets?betIds=775856112,775856113,775856114
+          https://api.ps3838.com/v1/bets?betIds=775856112,775856113,775856114
           ```
           
           ### Get bets by uniqueRequestIds:
           
           ```
-          https://api.ps3838.com/v2/bets?uniqueRequestIds=62335222-dae4-479a-8c05-46440ccdd3bb,42335222-dae4-479a-8c05-46440ccdd3bb
+          https://api.ps3838.com/v1/bets?uniqueRequestIds=62335222-dae4-479a-8c05-46440ccdd3bb,42335222-dae4-479a-8c05-46440ccdd3bb
           ```
           
       operationId: Bets_GetBetsByType
@@ -492,7 +492,7 @@ paths:
           schema:
             $ref: '#/definitions/ErrorResponseWithErrorRef'
             
-  /v2/bets/settled:
+  /v1/bets/settled:
     get:
       tags:
         - Get Bets
@@ -504,11 +504,11 @@ paths:
           ### Get settled bets settled by time range:
             
           ```
-          https://api.ps3838.com/v2/bets/settled?fromDate=2015-12-28T00:00:00Z&toDate=2015-12-29T00:00:00Z
+          https://api.ps3838.com/v1/bets/settled?fromDate=2015-12-28T00:00:00Z&toDate=2015-12-29T00:00:00Z
           ```
           
           
-      operationId: Bets_GetBetsSettledV2
+      operationId: Bets_GetBetsSettledV1
       consumes: []
       produces:
         - application/json
