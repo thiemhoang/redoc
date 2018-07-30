@@ -496,7 +496,7 @@ paths:
     get:
       tags:
         - Get Bets
-      summary: Get Bets Settled - v2
+      summary: Get Bets Settled - v1
       description: |
           Returns bets settled.
           
