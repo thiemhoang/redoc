@@ -67,7 +67,7 @@ paths:
     post:
       tags:
         - Place Bets
-      summary: Place straight bet  - v2
+      summary: Place straight bet - v2
       description: | 
            Place straight bet (SPREAD, MONEYLINE, TOTAL_POINTS, TEAM_TOTAL_POINTS).
       
